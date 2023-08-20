@@ -7,7 +7,7 @@ spring:
   cloud:
       discovery:
         locator:
-          enabled:true
+          enabled: true
       routes:
         - id: catalogRoute
           uri: lb://catalog-service
