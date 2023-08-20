@@ -4,22 +4,19 @@ server:
 spring:
   application:
     name: gateway-service
-  clod:
-    gateway:
+  cloud:
       discovery:
         locator:
           enabled:true
       routes:
-        - id: categoriaRoute
-          uri: lb://categoria-service
+        - id: catalogRoute
+          uri: lb://catalog-service
           predicates:
-            - Path=/categoria/**
+            - Path=/catalog/**
         - id: movieRoute
           uri: lb://movie-service
           predicates:
-            - Path=/movie/**
-
-
+            - Path=/api/v1/movies/**
 
 eureka:
   client:
