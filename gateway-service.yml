@@ -4,9 +4,20 @@ server:
 spring:
   application:
     name: gateway-service
-
-    #Agregar aquí el ruteo
-
+  clod:
+    gateway:
+      discovery:
+        locator:
+          enabled:true
+      routes:
+        - id: categoriaRoute
+          uri: lb://categoria-service
+          predicates:
+            - Path=/categoria/**
+        - id: movieRoute
+          uri: lb://movie-service
+          predicates:
+            - Path=/movie/**
 
 
 
