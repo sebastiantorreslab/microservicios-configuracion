@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name:serie-service
+    name: serie-service
   mongodb:
     embedded:
       version: 4.0.2
