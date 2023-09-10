@@ -2,15 +2,13 @@ server:
   port: ${PORT:${SERVER_PORT:0}}
 
 spring:
-  application:
-    name: catalog-service
   mongodb:
     embedded:
       version: 4.0.2
   data:
     mongodb:
       database: catalogdb
-      port: 27018
+      port: 27019
 
 eureka:
   client:
@@ -25,10 +23,31 @@ eureka:
         prefer-ip-address: true
         lease-renewal-interval-in-seconds: 5
         lease-renewal-duration-in-seconds: 10
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+endpoint:
+  health:
+    show-details: always
 
 resilience4j:
   circuitbreaker:
     instances:
       serie:
-#        TODO: poner aquí configuraciones de resilience 4j
-
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 15000
+        permittedNumberOfCallsInHalfOpenState: 3
+        registerHealthIndicator: true
+        allowedHealthIndicatorToFail: false
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+retry:
+  instances:
+    serie:
+    waitDuration: 1000
+    maxAttemps : 3
+    retryExceptions:
+      - feign.FeignException$InternalServerError
