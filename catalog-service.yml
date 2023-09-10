@@ -4,6 +4,13 @@ server:
 spring:
   application:
     name: catalog-service
+  mongodb:
+    embedded:
+      version: 4.0.2
+  data:
+    mongodb:
+      database: catalogdb
+      port: 27018
 
 eureka:
   client:
@@ -18,4 +25,10 @@ eureka:
         prefer-ip-address: true
         lease-renewal-interval-in-seconds: 5
         lease-renewal-duration-in-seconds: 10
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      serie:
+#        TODO: poner aquí configuraciones de resilience 4j
 
