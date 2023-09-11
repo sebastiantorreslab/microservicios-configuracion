@@ -1,5 +1,6 @@
 server:
   port: ${PORT:${SERVER_PORT:0}}
+  context-path: /catalog/
 
 spring:
   application:
@@ -11,6 +12,30 @@ spring:
     mongodb:
       database: catalogdb
       port: 27019
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
+  zipkin:
+    base-url: http://localhost:9411/
+    enabled: true
+
+queue:
+  serie:
+    name: SerieQueue
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+  endpoint:
+    info:
+      enabled: true
 
 eureka:
   client:
@@ -26,14 +51,6 @@ eureka:
         lease-renewal-interval-in-seconds: 5
         lease-renewal-duration-in-seconds: 10
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-endpoint:
-  health:
-    show-details: always
 
 resilience4j:
   circuitbreaker:
