@@ -27,6 +27,9 @@ queue:
   serie:
     name: SerieQueue
 
+
+message: catalog-service up
+
 management:
   endpoints:
     web:
@@ -38,6 +41,9 @@ management:
   endpoint:
     info:
       enabled: true
+
+
+
 
 eureka:
   client:

@@ -27,6 +27,8 @@ queue:
   serie:
     name: SerieQueue
 
+message: serie-service up
+
 management:
   endpoints:
     web:
