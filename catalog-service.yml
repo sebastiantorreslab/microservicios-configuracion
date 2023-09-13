@@ -26,6 +26,8 @@ spring:
 queue:
   serie:
     name: SerieQueue
+  movie:
+    name: MovieQueue
 
 
 message: catalog-service up
