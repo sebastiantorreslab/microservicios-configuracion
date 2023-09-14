@@ -55,7 +55,6 @@ management:
       endpoint:
         info:
           enabled: true
-
 queue:
   movie:
     name: MovieQueue
