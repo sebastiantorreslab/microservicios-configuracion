@@ -1,6 +1,6 @@
 server:
   port: ${PORT:${SERVER_PORT:0}}
-  context-path: /api/v1/movies
+  context-path: /api/v1/movies/
 
 idRandom: ${random.value}
 
@@ -60,5 +60,6 @@ management:
       endpoint:
         info:
           enabled: true
+
 
 
