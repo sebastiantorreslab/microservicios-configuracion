@@ -37,13 +37,12 @@ management:
     web:
       exposure:
         include: '*'
-  info:
-    env:
+  health:
+    circuitbreakers:
       enabled: true
   endpoint:
-    info:
-      enabled: true
-
+    health:
+      show-details: always
 
 
 
